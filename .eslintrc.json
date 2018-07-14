@@ -1,0 +1,13 @@
+{
+    "extends": "airbnb-base",
+    "rules": {
+      "no-underscore-dangle": [
+        "warn",
+        {
+            "allowAfterThis": true
+        }
+    ],
+    "eqeqeq": 0,
+    "no-debugger": 0
+    }
+}

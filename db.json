@@ -1,0 +1,36 @@
+{
+  "title": "Command Manager",
+  "version": "",
+  "groups": [
+    {
+      "_name": "Test",
+      "_commands": [
+        {
+          "_name": "TestCommand",
+          "_command": "\"node --version\""
+        },
+        {
+          "_name": "command_test_2",
+          "_command": "\"npm --version\""
+        },
+        {
+          "_name": "pm2List",
+          "_command": "\"pm2 list\""
+        },
+        {
+          "_name": "cwd",
+          "_command": "\"dir\""
+        }
+      ]
+    },
+    {
+      "_name": "Test2",
+      "_commands": [
+        {
+          "_name": "test2_command_1",
+          "_command": "\"npm --version\""
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "commandmanager",
+  "version": "1.0.0",
+  "description": "Command Manager ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Arup Paul",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "commander": "^2.16.0",
+    "eslint-config-airbnb": "^17.0.0",
+    "inquirer": "^6.0.0",
+    "lowdb": "^1.0.0",
+    "node-cmd": "^3.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-config-google": "^0.9.1",
+    "eslint-plugin-import": "^2.13.0"
+  }
+}
