@@ -1,10 +1,9 @@
 #!/usr/bin/env node
-const DatabaseManagerClass = require('./DataBaseUtil/DatabaseManager.js');
+const databaseManager = require('./DataBaseUtil/DatabaseManager.js');
 const CommandManger = require('./CommandManager/CommandManager');
 
-const databaseManager = new DatabaseManagerClass();
 function startProgram() {
-  new CommandManger(databaseManager).init();
+  new CommandManger().init();
 }
 
 // Initialize Database before start the program

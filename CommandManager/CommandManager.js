@@ -5,6 +5,7 @@ const cmd = require('node-cmd');
 const addGroupUI = require('./../InteractiveUI/AddGroupUI');
 const addCommandUI = require('./../InteractiveUI/AddCommandUI');
 const listUI = require('./../InteractiveUI/ListUI');
+const databaseManager = require('./../DataBaseUtil/DatabaseManager');
 
 function printError(msg) {
   console.log(chalk.default.red(msg));
@@ -41,8 +42,8 @@ async function executeCommands(commnads, currentIndex = 0) {
   }
 }
 class CommandManager {
-  constructor(_databaseManager) {
-    this.databaseManager = _databaseManager;
+  constructor() {
+    this.databaseManager = databaseManager;
   }
 
   init() {
