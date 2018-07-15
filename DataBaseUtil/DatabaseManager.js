@@ -57,4 +57,5 @@ class DatabaseManager {
       .value();
   }
 }
-module.exports = DatabaseManager;
+const databaseManager = new DatabaseManager();
+module.exports = databaseManager;
