@@ -4,5 +4,6 @@
     "eslint.provideLintTask": true,
     "editor.tabSize": 2,
     "editor.autoIndent": true,
-    "editor.detectIndentation": false
-}
+    "editor.detectIndentation": false,
+    "files.eol": "\n"
+  }

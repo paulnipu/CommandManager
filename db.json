@@ -20,10 +20,6 @@
         {
           "_name": "cwd",
           "_command": "\"dir\""
-        },
-        {
-          "_name": "Dir_test",
-          "_command": "\"dir\""
         }
       ]
     },
@@ -31,30 +27,18 @@
       "_name": "Test2",
       "_commands": [
         {
-          "_name": "test2_command_1",
-          "_command": "\"npm --version\""
-        },
-        {
-          "_name": "Dir_Test",
+          "_name": "DIR",
           "_command": "\"dir\""
         },
         {
-          "_name": "Dir_Test2_1",
-          "_command": "jhghh"
-        },
-        {
-          "_name": "Dir_test_2",
-          "_command": "6"
-        },
-        {
-          "_name": "Dir_Test2_7",
-          "_command": "\"dir\""
-        },
-        {
-          "_name": "Dir_Test2_7",
-          "_command": "\"dir\""
+          "_name": "NPM",
+          "_command": "\"npm\""
         }
       ]
+    },
+    {
+      "_name": "Test3",
+      "_commands": []
     }
   ]
 }

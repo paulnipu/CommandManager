@@ -53,6 +53,7 @@ class CommandManager {
     this.addGroupCommand();
     this.addCommand();
     this.showList();
+    this.delete();
     program.parse(process.argv);
   }
 
@@ -120,6 +121,44 @@ class CommandManager {
         } else {
           const result = await executeCommand(JSON.parse(nestedAnswer.selectedItem));
           printResponse(result);
+        }
+      });
+  }
+
+  delete() {
+    program
+      .command('delete')
+      .option('-g, --group', 'Delete Group')
+      .option('-i, --item', 'Delete Item')
+      .action(async (opt) => {
+        if (opt.group) {
+          const answer = await showUI(listUI(this.databaseManager.loadGroupList(), 'Select group you want to delete.'));
+          const response = await this.databaseManager.deleteGroup(answer.selectedItem);
+          printResponse(response);
+        } else if (opt.item) {
+          const answer = await showUI(listUI(this.databaseManager.loadGroupList(), 'Select group.'));
+          console.log(`------------------ Commands of ${answer.selectedItem}------------------\n`);
+          const commandList = this.databaseManager.loadCommandList(answer.selectedItem);
+          const formattedCommandList = commandList.map(element => ({
+            name: element._name,
+            value: element._name,
+          }));
+          formattedCommandList.splice(0, 0, {
+            name: '*',
+            value: '*',
+          });
+          const itemAnswer = await showUI(listUI(formattedCommandList));
+          if (itemAnswer.selectedItem == '*') {
+            const response = await this.databaseManager
+              .deleteItem(answer.selectedItem, itemAnswer.selectedItem, true);
+            printResponse(response);
+          } else {
+            const response = await this.databaseManager
+              .deleteItem(answer.selectedItem, itemAnswer.selectedItem);
+            printResponse(response);
+          }
+        } else {
+          printError('[-g --group] or [-i --item required]');
         }
       });
   }

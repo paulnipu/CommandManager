@@ -56,6 +56,49 @@ class DatabaseManager {
       .get('_commands')
       .value();
   }
+
+  deleteGroup(groupName) {
+    return new Promise((resolve, reject) => {
+      this.db.get('groups')
+        .remove({ _name: groupName })
+        .write()
+        .then(() => {
+          resolve(`${groupName} has been deleted`);
+        })
+        .catch((err) => {
+          reject(err);
+        });
+    });
+  }
+
+  deleteItem(groupName, itemName, deleteall = false) {
+    return new Promise((resolve, reject) => {
+      const commands = this.db.get('groups')
+        .find({ _name: groupName })
+        .get('_commands');
+      if (deleteall) {
+        commands
+          .remove()
+          .write()
+          .then(() => {
+            resolve('All item has been deleted');
+          })
+          .catch((err) => {
+            reject(err);
+          });
+      } else {
+        commands
+          .remove({ _name: itemName })
+          .write()
+          .then(() => {
+            resolve(`${itemName} has been deleted`);
+          })
+          .catch((err) => {
+            reject(err);
+          });
+      }
+    });
+  }
 }
 const databaseManager = new DatabaseManager();
 module.exports = databaseManager;

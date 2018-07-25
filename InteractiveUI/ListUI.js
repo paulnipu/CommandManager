@@ -1,9 +1,9 @@
-function getItemListUI(listItems) {
+function getItemListUI(listItems, msg = 'Select group.') {
   return [
     {
       type: 'list',
       name: 'selectedItem',
-      message: 'Select group.',
+      message: msg,
       choices: () => listItems,
     },
   ];
