@@ -7,7 +7,7 @@ module.exports = [
     name: 'groupName',
     message: 'Please enter group name.',
     validate: val => new Promise((resolve, reject) => {
-      const pass = databaseManager.loadGroupList().filter(group => group._name == val).length > 0;
+      const pass = databaseManager.loadGroupList().filter(group => group == val).length > 0;
       if (pass) {
         resolve(pass);
       }
@@ -19,8 +19,7 @@ module.exports = [
     name: 'commandName',
     message: 'Please enter Command name.',
     validate: function chectValidation(input) {
-      console.log(regExpUtil.nameRegExp);
-      const pass = input.match(regExpUtil.nameRegExp);
+      const pass = input.match(regExpUtil.nameRegExp());
       if (pass) {
         return true;
       }
@@ -32,7 +31,7 @@ module.exports = [
     name: 'command',
     message: 'Please enter Command.',
     validate: function chectValidation(input) {
-      const regEx = regExpUtil.quotedTextRegexp; // '/^"(?:[A-Za-z0-9])+"$/';
+      const regEx = regExpUtil.quotedTextRegexp();
       const pass = input.match(regEx);
       if (pass) {
         return true;

@@ -2,14 +2,16 @@ const Regularity = require('regularity');
 
 class RegExUtil {
   constructor() {
+    this.quoteExp = new RegExp('^"(?:.)+"$');
+  }
+
+  quotedTextRegexp() {
+    return this.quoteExp;
+  }
+
+  nameRegExp() {
     this.regularity = new Regularity();
-    this.quotedTextRegexp = this.regularity
-      .startWith('"')
-      .oneOrMore('alphanumeric')
-      .endWith('"')
-      .done();
-    this.regularity = new Regularity();
-    this.nameRegExp = this.regularity
+    return this.regularity
       .oneOrMore('alphanumeric')
       .zeroOrMore('_')
       .done();
