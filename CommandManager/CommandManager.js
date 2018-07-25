@@ -48,7 +48,7 @@ class CommandManager {
 
   init() {
     program
-      .version('1.0.0')
+      .version('1.1.2')
       .description('My Command Manager');
     this.addGroupCommand();
     this.addCommand();
@@ -60,6 +60,7 @@ class CommandManager {
   addGroupCommand() {
     program
       .command('add-group')
+      .description('Add new group')
       .alias('g')
       .action(async () => {
         try {
@@ -80,6 +81,7 @@ class CommandManager {
   addCommand() {
     program
       .command('add-command')
+      .description('Add new Command')
       .alias('g')
       .action(async () => {
         const answers = await showUI(addCommandUI);
@@ -96,6 +98,7 @@ class CommandManager {
   showList() {
     program
       .command('list')
+      .description('Show group list')
       .action(async () => {
         // Load Command List
         const listOfGroups = this.databaseManager.loadGroupList();
